@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KungLife</title>
+    <link rel="stylesheet" href="../../Site Institucional/src/css/cadastro.css">
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- HEADER DA PÁGINA COM A NAVBAR -->
+    <header class="header">
+        <nav class="nav_home">
+            <div class="container_logo">
+                <a href="../../Site Institucional/0. HomePage/index.html">
+                    <img class="logoHome" src="../../Site Institucional/src/img/LogoBranca-removebg-preview.png">
+                </a>
+            </div>
+            <ul>
+
+                <li>
+                    <a class="ancoragem" href="../../Site Institucional/0. HomePage/Homepage.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a class="ancoragem" href="../../Site Institucional/0. HomePage/index.html#section_cards">
+                        Vantagens da Prática
+                    </a>
+                </li>
+
+                <li>
+                    <a class="ancoragem" href="../../Site Institucional/0. HomePage/index.html#section_sobreMim">
+                        Sobre Mim
+                    </a>
+                </li>
+
+                <li>
+                    <a class="ancoragem" href="../../Site Institucional/2. Quiz/quizKungLife.html">
+                        Quiz
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="cadastro_login">
+                <button class="login">
+                    Entrar
+                </button>
+
+                <button class="cadastro">
+                    Cadastro
+                </button>
+            </div>
+
+        </nav>
+    </header>
+    <!-- FIM DO HEADER -->
+
+    <!-- CONTAINER DE LOGIN E CADASTRO -->
+    <section class="formulario">
+
+        <div class="container">
+
+            <div class="conteudo">
+                <!-- FORMULÁRIO CADASTRO -->
+                <form class="form" id="cadastrar">
+
+                    <!-- TITULO -->
+                    <h2 class="titulo">Criar conta</h2>
+                    <p class="descricao">Informe seus dados cadastrais e junte-se conosco!</p>
+
+                    <!-- NOME INPUT -->
+                    <div class="input_section section-1">
+
+                        <label class="label-input">
+                            <i class="fa-regular fa-user icon-modify"></i>
+                            <input type="text" placeholder="Nome" id="input_nome">
+                        </label>
+
+                        <!-- MENSAGEM DE ERRO NA VALIDAÇÃO DO NOME -->
+                        <div class="mensagemErro" id="erro_inputNome">
+                            <p>(Nome deve conter mais de 2 caracteres)</p>
+                        </div>
+
+                    </div>
+
+                    <!-- SOBRENOME INPUT -->
+                    <div class="input_section section-1">
+
+                        <label class="label-input">
+                            <i class="fa-regular fa-user icon-modify"></i>
+                            <input type="text" placeholder="Sobrenome" id="input_sobrenome">
+                        </label>
+
+                        <!-- MENSAGEM DE ERRO NA VALIDAÇÃO DO SOBRENOME -->
+                        <div class="mensagemErro" id="erro_inputSobrenome">
+                            <p>(Sobrenome deve conter mais de 3 caracteres)</p>
+                        </div>
+
+                    </div>
+
+                    <!-- BOTÃO PARA SEGUIR COM O CADASTRO APÓS O PREENCHIMENTO DOS INPUTS ACIMA -->
+                    <button class="btn-form section-1" onclick="proximoPasso()">Seguir</button>
+
+                    <!-- EMAIL INPUT -->
+                    <div class="input_section section-2">
+
+                        <label class="label-input">
+                            <i class="fa-regular fa-envelope icon-modify"></i>
+                            <input type="email" placeholder="Email" id="input_email">
+                        </label>
+
+                        <div class="mensagemErro" id="erro_inputEmail">
+                            <p>(Email deve conter um '.' e um '@')</p>
+                        </div>
+
+                    </div>
+
+                    <!-- SENHA INPUT-->
+                    <div class="input_section section-2">
+
+                        <label class="label-input label-input-senha">
+                            <i class="fa-solid fa-lock icon-modify"></i>
+                            <input type="text" placeholder="Senha" id="input_senha">
+                        </label>
+
+                        <!-- MENSAGENS DE ERRO NA VALIDAÇÃO DA SENHA, INFORMA OS REQUISITOS PARA A VALIDAÇÃO CORRETA -->
+                        <div class="mensagemErro erroSenha" id="erro_inputSenha">
+
+                            <p class="mensagemErro-text" id="erroSenha1">Necessário 1 Caracter Especial.</p>
+
+                            <p class="mensagemErro-text" id="erroSenha2">Necessário ao menos 8 Caracteres.</p>
+
+                            <p class="mensagemErro-text" id="erroSenha3">Necessário 1 Letra Maiuscula.</p>
+
+                            <p class="mensagemErro-text" id="erroSenha4">Necessário 1 Letra Minuscula.</p>
+
+                            <p class="mensagemErro-text" id="erroSenha5">Necessário 1 Número.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CONFIRMAR SENHA INPUT -->
+                    <div class="input_section section-2">
+
+                        <label class="label-input label-input-confirma">
+
+                            <i class="fa-solid fa-lock icon-modify"></i>
+
+                            <input type="text" placeholder="Confirmar senha" id="input_confirmaSenha">
+
+                        </label>
+
+                        <!-- MENSAGEM DE ERRO NA VALIDAÇÃO DA CONFIRMAÇÃO DA SENHA -->
+                        <div class="mensagemErro" id="erro_inputConfirmarSenha">
+                            <p>As senhas não são iguais</p>
+                        </div>
+
+
+                    </div>
+
+                    <!-- BOTAO PARA FINALIZAR O CADASTRO -->
+                    <button class="btn-form section-2" onclick="cadastrar()">
+                        Inscrever
+                    </button>
+
+                </form>
+
+                <!-- FORMULARIO LOGIN -->
+                <form class="form" id="login">
+
+                    <!-- TITULO-->
+                    <h2 class="titulo">Entrar</h2>
+                    <p class="descricao">Informe suas credencias para realizar o acesso</p>
+
+                    <!-- EMAIL INPUT -->
+                    <div class="input_section">
+
+                        <label class="label-input">
+                            <i class="fa-regular fa-envelope icon-modify icon"></i>
+                            <input type="email" placeholder="Email">
+                        </label>
+
+                    </div>
+                    
+                    <!-- SENHA INPUT-->
+                    <div class="input_section">
+
+                        <label class="label-input">
+                            <i class="fa-solid fa-lock icon-modify icon"></i>
+                            <input type="password" placeholder="Senha">
+                        </label>
+
+                    </div>
+
+                    <!-- BOTAO CADASTRO -->
+                    <a href="">Esqueceu a senha?</a>
+
+                    <a href="">
+                        <button class="btn-form">
+                            Entrar
+                        </button>
+                    </a>
+
+                </form>
+
+                <!-- CHAMADA LOGIN -->
+                <div class="chamada" id="chamada-login">
+
+                    <h1 class="titulo">Bem vindo de volta!</h1>
+
+                    <p class="descricao">Mantenha-se conectado e tenha acesso a área do usuário</p>
+
+                    <button class="btn-chamada" id="chamada-login-btn">
+                        Tenho Cadastro
+                    </button>
+
+                </div>
+                <!-- CHAMADA CADASTRO -->
+                <div class="chamada hide" id="chamada-cadastrar">
+
+                    <h1 class="titulo">Bem Vindo a KungLife</h1>
+
+                    <p class="descricao">Insira seus dados cadastrais e junte-se conosco!</p>
+
+                    <button class="btn-chamada" id="chamada-cadastro-btn">
+                        Não Tenho Cadastro
+                    </button>
+
+                </div>
+
+                <!-- CRIANDO DIV PARA COBRIR O CONTEÚDO DA DIV DOS FORMS -->
+                <div id="cobertura"></div>
+
+            </div>
+        </div>
+
+        </div>
+
+    </section>
+    <!-- FIM DO CONTAINER DE LOGIN E CADASTRO -->
+
+</body>
+
+</html>
+
+<script>
+    // ESCOPO GLOBAL
+
+    const caracterMaiusculo = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    const caracterMinusculo = "qwertyuiopasdfghjklzxcvbnm";
+    const caracterNum = "1234567890";
+    const caracterEspecial = "!#$%&*?@_";
+
+
+    // FUNÇÃO QUE VAI APAGAR O NOME E SOBRENOME PARA EMAIL, SENHA E CONFIRMAR SENHA...
+    // SE CASO OS INPUTS ESTIVEREM CERTOS
+    function proximoPasso() {
+
+        event.preventDefault()
+
+        // DECLARANDO INPUTS - OBVIO.
+        const nome = input_nome.value;
+        const sobrenome = input_sobrenome.value;
+        const email = input_email.value;
+        const senha = input_senha.value;
+
+        // DESCLARANDO VALIDAÇÕES BASICAS
+        let validar_nome = nome.length > 2;
+        let validar_sobrenome = sobrenome.length > 3 && sobrenome.length <= 20;
+
+        let validacaoTotal = nome == "" || sobrenome == "";
+
+        if (validacaoTotal == true
+            || validar_nome == false
+            || validar_sobrenome == false) {
+
+            if (validacaoTotal == true) {
+                alert(`ERRO: Preencha todos os campos!`)
+            }
+            // VALIDA SE O NOME TEM MAIS DE 2 CARACTERES
+            // SE FOR FALSO, É EXIBIDO UMA MENSAGEM COM DISPLAY FLEX
+            // CASO CONTRARIO É REMOVIDO O FLEX PARA NONE
+            if (validar_nome == false) {
+                document.getElementById("erro_inputNome").style.display = "flex";
+            } else {
+                document.getElementById("erro_inputNome").style.display = "none";
+            }
+
+            // VALIDA SE O SOBRENOME TEM MAIS DE 3 CARACTERES
+            if (validar_sobrenome == false) {
+                document.getElementById("erro_inputSobrenome").style.display = "flex";
+            } else {
+                document.getElementById("erro_inputSobrenome").style.display = "none";
+            }
+
+        } else {
+            document.getElementById("erro_inputNome").style.display = "none";
+            document.getElementById("erro_inputSobrenome").style.display = "none";
+
+            document.querySelectorAll('.section-1').forEach(function (elemento) {
+                elemento.style.display = "none";
+            });
+
+            document.querySelectorAll('.section-2').forEach(function (elemento) {
+                elemento.style.display = "block";
+            });
+        }
+
+    }
+    function cadastrar() {
+
+        // ESSE COMANDO IMPEDE A PAGINA DE BUGAR QUANDO O BOTAO DO FORMULARIO FOR APERTADO
+        // ESSE COMANDO PREVINE QUE A PAGINA PROCURE UMA SAIDA.
+        event.preventDefault()
+
+        // DECLARANDO INPUTS - OBVIO.
+        const nome = input_nome.value;
+        const sobrenome = input_sobrenome.value;
+        const email = input_email.value;
+        const senha = input_senha.value;
+        const confirmar = input_confirmaSenha.value;
+
+
+        // DESCLARANDO VALIDAÇÕES BASICAS
+        let validar_email = email.indexOf("@") >= 0 && email.indexOf(".") >= 0;
+        let validacaoTotal = nome == "" || sobrenome == "" || senha == "" || email == "";
+
+        // VALIDAÇÃO COMPOSTA DA SENHA
+        let tamanhoSenha = senha.length >= 8;
+        let qtdMaiusculo = 0;
+        let qtdMinisculo = 0;
+        let qtdNum = 0;
+        let qtdCarecterEspecial = 0;
+        let validarConfirmar = senha === confirmar;
+
+        // LAÇO QUE VAI PASSAR EM CADA CARACTER DA SENHA [contador] E,
+        // CONFORME CADA VERIFICAÇÃO, CASO SEJA ECONTRADO UMA POSIÇÃO
+        // VALIDA (=! -1), O PARAMETRO INCREMENTA MAIS UM.
+        for (let contador = 0; contador <= senha.length; contador++) {
+
+            if (caracterMaiusculo.indexOf(senha[contador]) != -1) {
+                qtdMaiusculo++;
+            }
+            if (caracterMinusculo.indexOf(senha[contador]) != -1) {
+                qtdMinisculo++;
+            }
+            if (caracterNum.indexOf(senha[contador]) != -1) {
+                qtdNum++;
+            }
+            if (caracterEspecial.indexOf(senha[contador]) != -1) {
+                qtdCarecterEspecial++
+            }
+        }
+
+        // CASO UMA DAS VALIDAÇÕES SEJA FALSA 
+        // É RETORNADO QUAL CAMPO ESTÁ INCORRETO
+        // CASO CONTRARIO, O SISTEMA FINALIZA O CADASTRO
+        if (validacaoTotal == true
+            || validar_email == false
+            || tamanhoSenha == false
+            || qtdMaiusculo == 0
+            || qtdMinisculo == 0
+            || qtdNum == 0
+            || qtdCarecterEspecial == 0
+            || validarConfirmar == false) {
+
+            // VALIDA SE HÁ ALGUM CAMPO VAZIO
+            if (validacaoTotal == true) {
+                alert(`preencha todos os campos`)
+            }
+
+            // VALIDA SE O EMAIL TEM @ E PONTO-FINAL
+            if (validar_email == false) {
+                document.getElementById("erro_inputEmail").style.display = "flex";
+            } else {
+                document.getElementById("erro_inputEmail").style.display = "none";
+            }
+
+            // VALIDAÇÃO DE SENHA COMPOSTA:
+            // CASO SENHA ESTEJA INCORRETA A MENSAGEM DE ERRO FICA DISPLAY FLEX
+            // CASO CONTRARIO FICA DISPLAY NONE (ORIGINAL)
+            if (tamanhoSenha == false
+                || qtdMaiusculo == 0
+                || qtdMinisculo == 0
+                || qtdNum == 0
+                || qtdCarecterEspecial == 0) {
+
+                document.getElementById("erro_inputSenha").style.display = "flex";
+
+
+                // TAMBEM QUANDO A SENHA ESTIVER INCORRETA,
+                // SERA FEITA UMA VALIDAÇÃO DE QUAL PARTE DA SENHA ESTA FALTANDO.
+                // QUANDO UMA PARTE DA SENHA FALTAR
+                // UM PARAGRAFO (P) DA DIV ERRO_INPUT É SETADO COMO BLOCK
+                // CASO CONTRARIO ELE É REMOVIDO 
+                if (qtdCarecterEspecial == 0) {
+                    document.getElementById("erroSenha1").style.display = "block";
+                } else {
+                    document.getElementById("erroSenha1").style.display = null;
+                }
+                if (tamanhoSenha == false) {
+                    document.getElementById("erroSenha2").style.display = "block";
+                } else {
+                    document.getElementById("erroSenha2").style.display = null;
+                }
+                if (qtdMaiusculo == 0) {
+                    document.getElementById("erroSenha3").style.display = "block";
+                } else {
+                    document.getElementById("erroSenha3").style.display = null
+                }
+                if (qtdMinisculo == 0) {
+                    document.getElementById("erroSenha4").style.display = "block";
+                } else {
+                    document.getElementById("erroSenha4").style.display = null
+                }
+                if (qtdNum == 0) {
+                    document.getElementById("erroSenha5").style.display = "block";
+                } else {
+                    document.getElementById("erroSenha5").style.display = null;
+                }
+
+            } else {
+                document.getElementById("erro_inputSenha").style.removeProperty("display");
+            }
+            if (validarConfirmar == false) {
+                document.getElementById("erro_inputConfirmarSenha").style.display = "flex";
+            } else {
+                document.getElementById("erro_inputConfirmarSenha").style.display = "none";
+            }
+
+        }
+        else {
+            window.open("../../0. Homepage/Homepage - Logged in/index.html ", "_self");
+        }
+
+    }
+
+    // FUNÇÂO ANIMAÇÂO DO CADASTRO E LOGIN
+    document.getElementById('chamada-cadastro-btn').addEventListener('click', function () {
+        const cobertura = document.getElementById('cobertura');
+
+        cobertura.classList.remove('left');
+        cobertura.classList.add('right');
+
+        const login = document.getElementById('chamada-login');
+        login.classList.remove('hide');
+
+        const cadastro = document.getElementById('chamada-cadastrar');
+        cadastro.classList.add('hide');
+    })
+
+    document.getElementById('chamada-login-btn').addEventListener('click', function () {
+        const cobertura = document.getElementById('cobertura');
+        cobertura.classList.remove('right');
+        cobertura.classList.add('left');
+
+        const login = document.getElementById('chamada-login');
+        login.classList.add('hide');
+
+        const cadastro = document.getElementById('chamada-cadastrar');
+        cadastro.classList.remove('hide');
+    })
+
+</script>

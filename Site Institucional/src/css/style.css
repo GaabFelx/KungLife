@@ -1,0 +1,636 @@
+@font-face {
+    font-family: Mandalore;
+    src: url(../../Mandalore\ Fonte/mandalore.ttf);
+}
+
+
+body,
+html {
+    background-color: #831C1A;
+    margin: 0;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(165, 42, 42, 0.8);
+    width: 100%;
+    height: 100px;
+
+
+    position: fixed;
+    z-index: 1;
+    box-shadow: 0px 5px 10px 0px rgb(0, 0, 0.80);
+
+}
+
+.nav_home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+}
+
+
+.logoHome {
+    position: fixed;
+    top: 2px;
+    left: 90px;
+    width: 130px;
+    height: 110px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.logoHome:hover {
+
+    transform: scale(1.2);
+
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 60px;
+
+}
+
+.ancoragem {
+    color: #FFFACD;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.ancoragem:hover {
+    color: #831C1A;
+}
+
+.cadastro_login {
+    display: flex;
+    gap: 10px;
+    padding-left: 30px;
+
+
+}
+
+.login {
+    color: white;
+    width: 100px;
+    height: 40px;
+
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    border-radius: 5px;
+
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(165, 42, 42, 0.8);
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.login:hover {
+
+    width: 100px;
+    height: 40px;
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    font-weight: bold;
+    background-color: #831C1A;
+    cursor: pointer;
+
+}
+
+.cadastro {
+    color: white;
+    width: 100px;
+    height: 40px;
+
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    border-radius: 5px;
+
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(165, 42, 42, 0.8);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.cadastro:hover {
+
+    width: 100px;
+    height: 40px;
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    font-weight: bold;
+    background-color: #831C1A;
+    cursor: pointer;
+}
+
+.bannerHome {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-image: url(../img/DoisHomiNoSol.jpg);
+    width: 100%;
+    height: 870px;
+
+}
+
+.container_frasePrincipal {
+    position: relative;
+    padding-top: 130px;
+    width: 740px;
+    height: 230px;
+
+
+
+    color: #FFFACD;
+    text-shadow: 2px 3px 6px black;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+.section_cards {
+    display: flex;
+    background-color: #831C1A;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 5px 30px 0px rgb(0, 0, 0.80);
+    width: 100%;
+    height: 500px;
+    padding-top: 15px;
+    gap: 22px;
+    align-items: start;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.titulo_cards {
+    color: #FFFACD;
+    font-size: 22px;
+
+}
+
+.cards {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    width: 310px;
+    height: 380px;
+    font-size: 15px;
+    box-shadow: 0px 5px 30px 0px rgb(0, 0, 0.80);
+    color: black;
+
+}
+
+.container_cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'palatino linotype', palatino, serif;
+}
+
+.imagem_cards {
+    display: flex;
+    width: 110px;
+    height: 110px;
+
+}
+
+.imagem_cards:hover {
+    transform: scale(1.2);
+
+}
+
+.sobreMim {
+    background-color: #5e1816;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 800px;
+
+}
+
+.header_sobreMim {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+
+}
+
+.nav_sobreMim {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container_foto {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+}
+
+.foto {
+    width: 300px;
+    height: 300px;
+
+
+    border-radius: 150px;
+    border: 3px solid white;
+}
+
+.container_text {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 150px;
+
+
+}
+
+.div_text {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 800px;
+    height: 150px;
+}
+
+.text_sobreMim {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.container_cardsSobreMim {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: 500px;
+
+}
+
+.cardsSobreMim {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+    border-radius: 10px;
+    border-bottom: 8px solid red;
+
+    box-shadow: 0px 5px 15px black;
+
+}
+
+.container_iconCard {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 70px;
+    gap: 10px;
+}
+
+.iconCard {
+    padding-top: 5px;
+    width: 60px;
+    height: 60px;
+}
+
+.nomeLuta {
+    padding-left: 5px;
+
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Mandalore;
+
+}
+
+.verMais_card {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 90px;
+
+}
+
+.btnVerMais {
+    background-color: #5e1816;
+    color: whitesmoke;
+    font-weight: bold;
+
+    width: 80px;
+    height: 30px;
+
+    border: 3px solid black;
+    border-radius: 80px;
+
+    cursor: pointer;
+}
+
+#fadeJudo,
+#modalJudo {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#fadeMuay,
+#modalMuay {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#fadeKarate,
+#modalKarate {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#fadeBoxe,
+#modalBoxe {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+#fadeJudo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#fadeMuay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#fadeKarate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#fadeBoxe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#modalJudo {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    z-index: 10;
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+}
+
+#modalMuay {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    z-index: 10;
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+}
+
+#modalKarate {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    z-index: 10;
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+}
+
+#modalBoxe {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    z-index: 10;
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+}
+
+.modal_header {
+    display: flex;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Mandalore;
+
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.modal_content {
+    margin-bottom: 1rem;
+}
+
+#modalJudo.hideJudo,
+#fadeJudo.hideJudo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalMuay.hideMuay,
+#fadeMuay.hideMuay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalKarate.hideKarate,
+#fadeKarate.hideKarate {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalBoxe.hideBoxe,
+#fadeBoxe.hideBoxe {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalJudo.hideJudo {
+    top: 0;
+}
+
+#modalMuay.hideMuay {
+    top: 0;
+}
+
+#modalKarate.hideKarate {
+    top: 0;
+}
+
+#modalBoxe.hideBoxe {
+    top: 0;
+}
+
+.footer {
+    background-color: #0e0d0d;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+
+}
+
+.containerTituloFooter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+
+    color: white;
+    font-family: Mandalore;
+    font-size: 30px;
+}
+
+.contatoFooter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    color: #B8B8B8;
+    font-size: 16px;
+
+}
+
+.emailContato:hover {
+    color: #831C1A;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+.direitosAutorais {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    height: 50px;
+
+    background-color: black;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.direitosAutorais a {
+    text-decoration: none;
+}

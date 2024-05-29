@@ -1,0 +1,393 @@
+@font-face {
+    font-family: Mandalore;
+    src: url(../../Mandalore\ Fonte/mandalore.ttf);
+}
+
+
+body,
+html {
+    background-color: #831C1A;
+    margin: 0;
+    --branco: rgb(255, 255, 255);
+    --cinza: rgb(211, 207, 208);
+    --vermelho: #831c1a;
+    --marrom: rgb(59, 17, 2);
+    --preto: rgb(13, 0, 0);
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(165, 42, 42, 0.8);
+    width: 100%;
+    height: 100px;
+
+
+    position: fixed;
+    z-index: 15;
+    box-shadow: 0px 5px 10px 0px rgb(0, 0, 0.80);
+
+}
+
+.nav_home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+}
+
+
+.logoHome {
+    position: fixed;
+    top: 2px;
+    left: 90px;
+    width: 130px;
+    height: 110px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.logoHome:hover {
+
+    transform: scale(1.2);
+
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 60px;
+
+}
+
+.ancoragem {
+    color: #FFFACD;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.ancoragem:hover {
+    color: #831C1A;
+}
+
+.cadastro_login {
+    display: flex;
+    gap: 10px;
+    padding-left: 30px;
+
+
+}
+
+.login {
+    color: white;
+    width: 100px;
+    height: 40px;
+
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    border-radius: 5px;
+
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(165, 42, 42, 0.8);
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.login:hover {
+
+    width: 100px;
+    height: 40px;
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    font-weight: bold;
+    background-color: #831C1A;
+    cursor: pointer;
+
+}
+
+.cadastro {
+    color: white;
+    width: 100px;
+    height: 40px;
+
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    border-radius: 5px;
+
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(165, 42, 42, 0.8);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.cadastro:hover {
+
+    width: 100px;
+    height: 40px;
+    border-color: #FFFACD;
+    border-width: 1.2px;
+    font-weight: bold;
+    background-color: #831C1A;
+    cursor: pointer;
+}
+
+/* CADASTRO */
+.formulario {
+    z-index: 0;
+    height: 110vh;
+    background-image: url("../../src/img/FundoOficial01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.conteudo {
+    position: relative;
+    background-color: rgb(212, 212, 212);
+    width: 75%;
+    height: 70%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.conteudo form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.chamada {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    opacity: 1;
+    transition: 1s all ease;
+}
+
+#cobertura {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    transition: 1s all ease;
+    background: rgb(165, 42, 42);
+    background: radial-gradient(circle, rgb(175, 44, 42) 2%,rgb(161, 46, 46) 70%);
+}
+
+.titulo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.titulo::first-letter {
+    text-transform: capitalize;
+}
+
+.form .titulo {
+    color: black;
+}
+
+#cadastro .titulo {
+    margin: 0;
+}
+
+.chamada .titulo {
+    color: white;
+}
+
+.descricao {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.form .descricao {
+    margin: 0 0 10px;
+    color: #7f8c8d;
+}
+
+.chamada .descricao {
+    margin-bottom: 24px;
+    color: white;
+}
+
+.conteudo button {
+    background-color: rgb(165, 42, 42);
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    padding: 16px 35px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.btn-form {
+    background-color: var(--marrom);
+    border: 1px solid var(--marrom);
+}
+
+.btn-form:hover {
+    background-color: white;
+    border: 1px solid var(--marrom);
+    color: var(--marrom);
+}
+
+.btn-chamada {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.btn-chamada:hover {
+    background-color: white;
+    border: 1px solid var(--marrom);
+    color: var(--marrom);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    text-align: center;
+
+}
+
+.form input {
+    position: relative;
+    height: 45px;
+    border: none;
+    width: 100%;
+    background-color: rgb(200, 200, 200);
+    display: block;
+    padding: 0 40px;
+
+}
+
+.label-input {
+    position: relative;
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    margin: 0 0 18px;
+    width: 100%;
+}
+
+.label-input-senha {
+    margin: 0;
+}
+
+.label-input-confirma {
+    margin-top: 16px;
+}
+
+.icon-modify {
+    color: var(--marrom);
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.input_section {
+    position: relative;
+    width: 70%;
+}
+
+.section-2 {
+    display: none;
+}
+
+.mensagemErro {
+    display: none;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.mensagemErro p {
+    font-size: 10px;
+    font-weight: 400;
+    color: red;
+}
+
+.erroSenha {
+    position: relative;
+    bottom: 0;
+}
+
+.mensagemErro-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: red;
+}
+
+#erroSenha1,
+#erroSenha2,
+#erroSenha3,
+#erroSenha4,
+#erroSenha5 {
+    display: none;
+}
+
+.hide {
+    opacity: 0;
+    transform: translateY(200%);
+}
+
+.left {
+    transform: translateX(-100%);
+}
+
+.right {
+    transform: translateX(0%);
+}
+
+#chamada-login {
+    right: 0;
+    left: unset;
+}
+
+#chamada-cadastrar {
+    left: 0;
+    right: unset;
+}
