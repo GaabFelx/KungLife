@@ -1,82 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Kung Life</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+
+    <header class="header">
+        <nav class="nav_home">
+            <div class="container_logo">
+                <a href="index.html">
+                    <img class="logoHome" src="assets/imgs/LogoBranca-removebg-preview.png">
+                </a>
+            </div>
+            <ul>
+
+                <li>
+                    <a class="ancoragem" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a class="ancoragem" href="index.html#section_cards">
+                        Vantagens da Prática
+                    </a>
+                </li>
+
+                <li>
+                    <a class="ancoragem" href="index.html#section_sobreMim">
+                        Sobre Mim
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="cadastro_login">
+                <a href="cadastro.html">
+                    <button class="login">
+                        Entrar
+                    </button>
+                </a>
+
+                <a href="cadastro.html">
+                    <button class="cadastro">
+                        Cadastro
+                    </button>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <section id="bannerHome" class="bannerHome">
+        <div class="container_frasePrincipal">
+            <span>
+                Nas artes marciais, encontre coragem, disciplina e determinação para superar qualquer desafio e realizar
+                seus sonhos dentro e fora delas.
+            </span>
         </div>
-      </div>
+    </section>
+
+
+
+
+    <section id="section_cards" class="section_cards">
+
+        <div class="container_cards">
+
+            <span class="titulo_cards">Cultura</span>
+
+            <div class="cards">
+
+                <img class="imagem_cards" src="assets/imgs/Cultura.png">
+
+                <span>
+                    Muitas artes marciais têm suas raizes em filosofias orientas, como o Budismo e o Confucionismo.
+                    <br>
+                    Os praticantes frequentemente incorporam esses valores em suas vidas,como disciplina, respeito,
+                    humildade e autocontrole.
+                    Além disso, os praticantes muitas vezes entram em contato com línguas estrangeiras como japonês,
+                    chinês e coreano.
+                </span>
+
+            </div>
+        </div>
+
+        <div class="container_cards">
+
+            <span class="titulo_cards">Saúde</span>
+
+            <div class="cards">
+
+                <img class="imagem_cards" src="assets/imgs/Saúde.png">
+
+                <span>
+                    A prática regular de artes marciais melhora o condicionamento físico geral. Isso inclui
+                    aumento
+                    da força muscular, resistência cardiovascular, flexibilidade, coordernação motora e
+                    equilíbrio.<br>
+                    Além disso, ajuda os praticantes a reduzir a gordura corporal, também sendo um forte aliado na saúde
+                    cardiovascular e na luta contra
+                    transtornos psicológicos.
+                </span>
+
+            </div>
+        </div>
+
+        <div class="container_cards">
+
+            <span class="titulo_cards">Social</span>
+
+            <div class="cards">
+
+                <img class="imagem_cards" src="assets/imgs/Social.png">
+
+                <span>
+                    Nas artes marciais, os praticantes aprendem técnicas para lidar com conflitos de forma pacífica.
+                    Isso envolve o desenvolvimento de habilidades de comunicação eficaz, capacidade de negociar e
+                    encontrar soluções mutuamente benéficas.<br>
+                    As artes marciais ofertam um ambiente que promove habilidades sociais
+                    importantes, que são transferíveis para outras áreas da
+                    vida social.
+                </span>
+
+            </div>
+        </div>
+
+        <div class="container_cards">
+
+            <span class="titulo_cards">Cognitivo</span>
+
+            <div class="cards">
+
+                <img class="imagem_cards" src="assets/imgs/Acadêmico.png">
+
+                <span>
+                    O treinamento e a prática de técnicas de combate, demanda o desenvolvimento de estratégias para
+                    antecipar e reagir aos movimentos do oponente. Isso promove o pensamento estratégico, a tomada de
+                    decisões rápidas e a capacidade de adaptar-se a situações em constante mudança.
+                    <br>Além disso, todo esse treinamento pode fortalecer a memória de curto e longo prazo dos
+                    praticantes.
+                </span>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="sobreMim" id="section_sobreMim">
+
+        <header class="header_sobreMim">
+            <span>
+                UM POUCO SOBRE MIM
+            </span>
+        </header>
+
+        <nav class="nav_sobreMim">
+            <span>
+                Quem sou eu?
+            </span>
+        </nav>
+
+        <div class="container_foto">
+            <img class="foto" src="assets/imgs/WhatsApp Image 2024-05-18 at 15.42.27.jpeg" alt="">
+        </div>
+
+        <div class="container_text">
+            <div class="div_text">
+                <span class="text_sobreMim">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae perspiciatis non minus provident
+                    mollitia consequatur atque, dicta, quifasdfasfasdfasdfas
+                    Lorem ipsum dolor sit ametafasdfasdfasdf consectetur adipisicing elit. Iure minima reiciendis,
+                    tempore sint
+                    deserunt eos similique. Recusandae itaque praesentium quaerat est saepe quod animi, nisi sit non
+                    nostrum aperiam laboriosam.
+                </span>
+            </div>
+        </div>
+
+        <div class="container_cardsSobreMim">
+
+            <div class="cardsSobreMim">
+                <div class="container_iconCard">
+
+                    <img class="iconCard" src="assets/imgs/JudoIcon.png" alt="">
+
+                </div>
+
+                <span class="nomeLuta">
+                    Judô
+                </span>
+
+                <div class="verMais_card">
+                    <button id="btnVerMaisJudo" class="btnVerMais">
+                        Ver Mais
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="cardsSobreMim">
+                <div class="container_iconCard">
+
+                    <img class="iconCard" src="assets/imgs/MuayIcon.png" alt="">
+
+                </div>
+
+
+                <span class="nomeLuta">
+                    Muay Thai
+                </span>
+
+                <div class="verMais_card">
+                    <button id="btnVerMaisMuay" class=" btnVerMais">
+                        Ver Mais
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="cardsSobreMim">
+                <div class="container_iconCard">
+
+                    <img class="iconCard" src="assets/imgs/KarateIcon.png" alt="">
+
+                </div>
+
+                <span class="nomeLuta">
+                    Karatê
+                </span>
+
+                <div class="verMais_card">
+                    <button id="btnVerMaisKarate" class="btnVerMais">
+                        Ver Mais
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="cardsSobreMim">
+                <div class="container_iconCard">
+
+                    <img class="iconCard" src="assets/imgs/BoxeIcon.png" alt="">
+
+                </div>
+
+                <span class="nomeLuta">
+                    Boxe
+                </span>
+
+                <div class="verMais_card">
+                    <button id="btnVerMaisBoxe" class="btnVerMais">
+                        Ver Mais
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="fadeJudo" class="hideJudo"></div>
+    <div id="fadeMuay" class="hideMuay"></div>
+    <div id="fadeKarate" class="hideKarate"></div>
+    <div id="fadeBoxe" class="hideBoxe"></div>
+
+    <!-- MODAL JUDÔ -->
+    <div id="modalJudo" class="hideJudo">
+        <div class="modal_header">
+            <h2>
+                Judô
+            </h2>
+        </div>
+
+        <div class="modal_content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, aperiam repellendus dolores iure cumque
+                dignissimos eaque ratione totam in sint ut voluptatibus corporis laudantium, veniam, similique suscipit
+                unde
+                quo autem.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, odio fugit minus quisquam impedit,
+                doloribus
+                debitis possimus alias, eligendi cum temporibus aliquam! Obcaecati recusandae, illo accusamus eveniet
+                sequi
+                facere consequuntur
+            </p>
+        </div>
+
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+
+    <!-- MODAL MUAY THAI -->
+    <div id="modalMuay" class="hideMuay">
+        <div class="modal_header">
+            <h2>
+                Muay Thai
+            </h2>
+        </div>
+
+        <div class="modal_content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, aperiam repellendus dolores iure cumque
+                dignissimos eaque ratione totam in sint ut voluptatibus corporis laudantium, veniam, similique suscipit
+                unde
+                quo autem.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, odio fugit minus quisquam impedit,
+                doloribus
+                debitis possimus alias, eligendi cum temporibus aliquam! Obcaecati recusandae, illo accusamus eveniet
+                sequi
+                facere consequuntur
+            </p>
+        </div>
+
     </div>
-  </body>
+
+    <!-- MODAL KARATÊ -->
+    <div id="modalKarate" class="hideKarate">
+        <div class="modal_header">
+            <h2>
+                Karatê
+            </h2>
+        </div>
+
+        <div class="modal_content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, aperiam repellendus dolores iure cumque
+                dignissimos eaque ratione totam in sint ut voluptatibus corporis laudantium, veniam, similique suscipit
+                unde
+                quo autem.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, odio fugit minus quisquam impedit,
+                doloribus
+                debitis possimus alias, eligendi cum temporibus aliquam! Obcaecati recusandae, illo accusamus eveniet
+                sequi
+                facere consequuntur
+            </p>
+        </div>
+
+    </div>
+
+    <!-- MODAL BOXE -->
+    <div id="modalBoxe" class="hideBoxe">
+        <div class="modal_header">
+            <h2>
+                Boxe
+            </h2>
+        </div>
+
+        <div class="modal_content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, aperiam repellendus dolores iure cumque
+                dignissimos eaque ratione totam in sint ut voluptatibus corporis laudantium, veniam, similique suscipit
+                unde
+                quo autem.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, odio fugit minus quisquam impedit,
+                doloribus
+                debitis possimus alias, eligendi cum temporibus aliquam! Obcaecati recusandae, illo accusamus eveniet
+                sequi
+                facere consequuntur
+            </p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="containerTituloFooter">
+            <h1>
+                KUNGLIFE
+            </h1>
+        </div>
+
+        <div class="contatoFooter">
+            <b>CONTATO</b>
+            <p class="emailContato">gabriel.bueno@sptech.school</p>
+
+
+            <div class="redesContato">
+
+            </div>
+        </div>
+
+        <div class="direitosAutorais">
+            ©2024 Todos os direitos reservados|
+            <a href="../../Site Institucional/0. HomePage/index.html">
+                KungLife
+            </a>
+        </div>
+
+    </footer>
+
+</body>
 
 </html>
+
+<script>
+    // Script para abrir e fechar o Modal de Judô
+
+    const openModalJudo = document.querySelector("#btnVerMaisJudo");
+    const modalJudo = document.querySelector("#modalJudo");
+    const fadeJudo = document.querySelector("#fadeJudo");
+
+    const toggleModalJudo = () => {
+        modalJudo.classList.toggle("hideJudo");
+        fadeJudo.classList.toggle("hideJudo");
+    };
+
+    [openModalJudo, fadeJudo].forEach((el) => {
+        el.addEventListener("click", () => toggleModalJudo());
+    });
+
+    // Script para abrir e fechar o Modal de Muay Thai
+
+    const openModalMuay = document.querySelector("#btnVerMaisMuay");
+    const modalMuay = document.querySelector("#modalMuay");
+    const fadeMuay = document.querySelector("#fadeMuay");
+
+    const toggleModalMuay = () => {
+        modalMuay.classList.toggle("hideMuay");
+        fadeMuay.classList.toggle("hideMuay");
+    };
+
+    [openModalMuay, fadeMuay].forEach((el) => {
+        el.addEventListener("click", () => toggleModalMuay());
+    });
+
+    // Script para abrir e fechar o Modal de karatê
+
+    const openModalKarate = document.querySelector("#btnVerMaisKarate");
+    const modalKarate = document.querySelector("#modalKarate");
+    const fadeKarate = document.querySelector("#fadeKarate");
+
+    const toggleModalKarate = () => {
+        modalKarate.classList.toggle("hideKarate");
+        fadeKarate.classList.toggle("hideKarate");
+    };
+
+    [openModalKarate, fadeKarate].forEach((el) => {
+        el.addEventListener("click", () => toggleModalKarate());
+    });
+
+    // Script para abrir e fechar o Modal de Boxe
+
+    const openModalBoxe = document.querySelector("#btnVerMaisBoxe");
+    const modalBoxe = document.querySelector("#modalBoxe");
+    const fadeBoxe = document.querySelector("#fadeBoxe");
+
+    const toggleModalBoxe = () => {
+        modalBoxe.classList.toggle("hideBoxe");
+        fadeBoxe.classList.toggle("hideBoxe");
+    };
+
+    [openModalBoxe, fadeBoxe].forEach((el) => {
+        el.addEventListener("click", () => toggleModalBoxe());
+    });
+
+</script>

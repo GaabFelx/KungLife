@@ -1,6 +1,6 @@
 @font-face {
     font-family: Mandalore;
-    src: url(../../Mandalore\ Fonte/mandalore.ttf);
+    src: url(../Mandalore\ Fonte/mandalore.ttf);
 }
 
 
@@ -141,7 +141,7 @@ ul {
     display: flex;
     justify-content: center;
     position: relative;
-    background-image: url(../img/DoisHomiNoSol.jpg);
+    background-image: url(../assets/imgs/DoisHomiNoSol.jpg);
     width: 100%;
     height: 870px;
 

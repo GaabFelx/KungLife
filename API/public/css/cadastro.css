@@ -146,7 +146,7 @@ ul {
 .formulario {
     z-index: 0;
     height: 110vh;
-    background-image: url("../../src/img/FundoOficial01.jpg");
+    background-image: url("../assets/imgs/FundoOficial01.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
