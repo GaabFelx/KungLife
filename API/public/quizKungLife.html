@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz - KungLife</title>
-  <link rel="stylesheet" href="../../API/public/css/quiz.css">
+  <link rel="stylesheet" href="css/quiz.css">
 
 </head>
 
@@ -44,7 +44,8 @@
   const $answers = document.querySelectorAll(".answer")
 
   let currentQuestionIndex = 0
-  let totalCorrect = 0
+  let pontuacao = 0
+  let fkUsuario =  sessionStorage.ID_USUARIO;
 
   $startGameButton.addEventListener("click", startGame)
   $returnDashboardButton.addEventListener("click", returnDashboard)
@@ -92,7 +93,7 @@
 
     if (answerClicked.dataset.correct) {
       document.body.classList.add("correct")
-      totalCorrect++
+      pontuacao++
     } else {
       document.body.classList.add("incorrect")
     }
@@ -113,7 +114,7 @@
 
   function finishGame() {
     const totalQuestions = questions.length
-    const performance = Math.floor(totalCorrect * 100 / totalQuestions)
+    const performance = Math.floor(pontuacao * 100 / totalQuestions)
 
     let message = ""
 
@@ -134,7 +135,7 @@
     $questionsContainer.innerHTML =
       `
     <p class="final-message">
-      Você acertou ${totalCorrect} de ${totalQuestions} questões!
+      Você acertou ${pontuacao} de ${totalQuestions} questões!
       <span>Resultado: ${message}</span>
     </p>
     <button 
@@ -143,12 +144,47 @@
     >
       Refazer teste
     </button>
+
+    <button onclick="cadastrar()"
+    class="button">
+    Salvar Resposta
+    </button>
   `
   }
 
   function returnDashboard() {
     window.location.href = "dashboardKL.html"
   }
+
+  function cadastrar() {
+        fetch("/quizKungLife/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                pontuacaoServer: pontuacao,
+                fkUsuarioServer: fkUsuario,
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log("OK")
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+    }
 
 
   const questions = [
@@ -241,4 +277,8 @@
       ]
     }
   ]
+
+    
+
+   
 </script>

@@ -166,7 +166,7 @@
                 </form>
 
                 <!-- FORMULARIO LOGIN -->
-                <form class="form" id="login">
+                <div class="form" id="login">
 
                     <!-- TITULO-->
                     <h2 class="titulo">Entrar</h2>
@@ -181,7 +181,7 @@
                         </label>
 
                     </div>
-                    
+
                     <!-- SENHA INPUT-->
                     <div class="input_section">
 
@@ -195,13 +195,12 @@
                     <!-- BOTAO CADASTRO -->
                     <a href="">Esqueceu a senha?</a>
 
-                    <a href="">
-                        <button class="btn-form">
-                            Entrar
-                        </button>
-                    </a>
+                    <button class="btn-form" onclick="entrar()">
+                        Entrar
+                    </button>
+                </div>
 
-                </form>
+
 
                 <!-- CHAMADA LOGIN -->
                 <div class="chamada" id="chamada-login">
@@ -430,7 +429,7 @@
 
         }
         else {
-           cadastrar()
+            cadastrar()
         }
 
     }
@@ -463,90 +462,104 @@
 
     function cadastrar() {
 
-//Recupere o valor da nova input pelo nome do id
-// Agora vá para o método fetch logo abaixo
-var nomeVar = input_nome.value;
-var sobrenomeVar = input_sobrenome.value;
-var emailVar = input_email.value;
-var senhaVar = input_senha.value;
-var confirmacaoSenhaVar = input_confirmaSenha.value;
 
-// Enviando o valor da nova input
-fetch("/usuarios/cadastrar", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    // crie um atributo que recebe o valor recuperado aqui
-    // Agora vá para o arquivo routes/usuario.js
-    nomeServer: nomeVar,
-    sobrenomeServer: sobrenomeVar,
-    emailServer: emailVar,
-    senhaServer: senhaVar
-  }),
-})
-  .then(function (resposta) {
-    console.log("resposta: ", resposta);
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var sobrenomeVar = input_sobrenome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmaSenha.value;
 
-    if (resposta.ok) {
-      alert("Cadastro realizado com sucesso! Agora, faça seu Login ao lado!");
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-    } else {
-      throw "Houve um erro ao tentar realizar o cadastro!";
-    }
-  })
-  .catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
+                if (resposta.ok) {
 
-return false;
-}
-// FUNCAO PARA O USUARIO REALIZAR O LOGIN (WEB-DATA-VIZ)
-function entrar() {
+                    alert("Cadastro realizado com sucesso! Realize seu login ao lado.")
 
-var emailVar = input_email.value;
-var senhaVar = input_senha.value;
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                    alert('Houve um erro ao tentar realizar o cadastro!')
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
 
-console.log("FORM LOGIN: ", emailVar);
-console.log("FORM SENHA: ", senhaVar);
+            });
 
-fetch("/usuarios/autenticar", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
-    })
-}).then(function (resposta) {
-    console.log("ESTOU NO THEN DO entrar()!")
-
-    if (resposta.ok) {
-        console.log(resposta);
-
-        resposta.json().then(json => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
-        });
-
-    } else {
-
-        console.log("Houve um erro ao tentar realizar o login!");
-
-        resposta.text().then(texto => {
-            console.error(texto);
-        });
+        return false;
     }
 
-}).catch(function (erro) {
-    console.log(erro);
-})
+    // FUNCAO PARA O USUARIO REALIZAR O LOGIN (WEB-DATA-VIZ)
 
-return false;
-}
+    function entrar() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+    
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "dashboardKL.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                alert('Houve um erro ao realizar o Login!')
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
 </script>
