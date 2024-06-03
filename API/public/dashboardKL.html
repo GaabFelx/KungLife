@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - KungLife</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -45,9 +46,25 @@
 
             <div class="grafico_rank">
 
-                <div>
+                <div class="container_indicadores">
+                    <div class="indicadores">
+                        <span>Pontuações Entre 8 e 10</span>
+                    </div>
 
+                    <div class="indicadores">
+                        <span>Pontuções Entre 6 e 8</span>
+                    </div>
+
+                    <div class="indicadores">
+                        <span>Pontuações Abaixo de 5</span>
+                    </div>
                 </div>
+
+
+                <div class="container_rank">
+                    <canvas id="myChart"></canvas>
+                </div>
+
 
             </div>
         </div>
@@ -57,3 +74,25 @@
 </body>
 
 </html>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Usuario 1', 'Usuario 2', 'Usuario 3', 'Usuario 4', 'Usuario 5'],
+            datasets: [{
+                label: 'Pontuação do Quiz',
+                data: [10, 8, 6, 4, 2],
+                borderWidth: 3,
+                borderColor: 'rgb(165, 42, 42)',
+                backgroundColor: 'rgb(165, 42, 42)'
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+        }
+    });
+
+</script>

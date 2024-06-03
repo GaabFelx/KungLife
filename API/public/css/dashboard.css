@@ -25,7 +25,7 @@
 
 .logoHome {
     position: absolute;
-bottom: 490px;
+    bottom: 490px;
     left: 90px;
     width: 130px;
     height: 110px;
@@ -71,7 +71,7 @@ bottom: 490px;
     z-index: 9;
 
     background-color: rgb(206, 204, 204);
-    box-shadow: 0px 10px 50px 0px rgb(0, 0, 0, 0.80);
+    box-shadow: 0px 10px 20px 0px rgb(0, 0, 0, 0.80);
 
 }
 
@@ -85,7 +85,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    width: 17vw;
+    width: 18vw;
     height: 50px;
 
 
@@ -95,13 +95,50 @@ a {
 }
 
 .navBar_menu:hover {
-    background-color: rgba(199, 75, 75, 0.8);
+    background-color: rgba(168, 168, 168, 0.8);
     cursor: pointer;
-    border-right: 5px solid red;
+    border-right: 5px solid rgb(0, 0, 0);
 }
 
 .grafico_rank {
-    background-color: rgb(29, 29, 29);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(201, 197, 197);
     width: 100vw;
     height: 100%;
+}
+
+.container_indicadores {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+}
+
+.indicadores {
+    background-color: rgb(184, 48, 48);
+
+    display: flex;
+    justify-content: center;
+    width: 15vw;
+    height: 18vh;
+
+    
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0px rgb(0, 0, 0, 0.40);
+
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Mandalore;
+}
+
+
+.container_rank {
+    background-color: rgb(206, 204, 204);
+    width: 50vw;
+    height: 50vh;
+
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgb(0, 0, 0, 0.50);
 }
