@@ -1,14 +1,9 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function obterMenorPontuacao(req, res) {
+    var fkUsuario = req.params.fkUsuario;
 
-    const limite_linhas = 7;
-
-    var idAquario = req.params.idAquario;
-
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    medidaModel.obterMenorPontuacao(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -21,14 +16,43 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function obterMaiorPontuacao(req, res) {
 
-function buscarMedidasEmTempoReal(req, res) {
+    var fkUsuario = req.params.fkUsuario;
 
-    var idAquario = req.params.idAquario;
+    medidaModel.obterMaiorPontuacao(fkUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    console.log(`Recuperando medidas em tempo real`);
+function obterMediaPontuacao(req, res) {
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.obterMediaPontuacao().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoPontuacaoUsuario(req, res) {
+
+    var fkUsuario = req.params.fkUsuario;
+
+    medidaModel.graficoPontuacaoUsuario(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +66,8 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    obterMenorPontuacao,
+    obterMaiorPontuacao,
+    obterMediaPontuacao,
+    graficoPontuacaoUsuario,
 }

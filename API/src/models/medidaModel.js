@@ -1,35 +1,51 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+function obterMenorPontuacao(fkUsuario) {
+
+    var instrucaoSql = `select max(pontuacao) as maiorPontuacao, min(pontuacao) as menorPontuacao, round(avg(pontuacao), 2) as mediaPontuacao
+    from pontuacao_quiz
+    WHERE fkUsuario = ${fkUsuario};`;
+                       
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function obterMaiorPontuacao(fkUsuario) {
 
     var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
-                    WHERE fk_aquario = ${idAquario}
-                    ORDER BY id DESC LIMIT ${limite_linhas}`;
+                       max(pontuacao) as 'Maior Pontuação'
+                    FROM quiz
+                    WHERE fkUsuario = ${fkUsuario};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function obterMediaPontuacao() {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+    var instrucaoSql = `SELECT round(avg(pontuação)) as 'Média Pontuação'
+                         FROM usuario;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function graficoPontuacaoUsuario(fkUsuario) {
+
+    var instrucaoSql = `SELECT 
+    pontuacao as 'Pontuação'
+ FROM pontuacao_quiz
+ WHERE fkUsuario = ${fkUsuario}
+ LIMIT 5;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    obterMenorPontuacao,
+    obterMaiorPontuacao,
+    obterMediaPontuacao,
+    graficoPontuacaoUsuario,
 }

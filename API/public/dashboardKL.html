@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="iniciarDash()">
 
     <div class="dashboard">
 
@@ -40,6 +40,12 @@
                             Quiz
                         </li>
                     </a>
+
+                    <a href="indexLogged.html">
+                        <li class="navBar_menu">
+                            Home
+                        </li>
+                    </a>
                 </ul>
 
             </div>
@@ -48,21 +54,24 @@
 
                 <div class="container_indicadores">
                     <div class="indicadores">
-                        <span>Pontuações Entre 8 e 10</span>
+                        <span>Pontuação Alta</span> <br><br>
+                        <span id="div_maiorPontuacao"></span>
                     </div>
 
                     <div class="indicadores">
-                        <span>Pontuções Entre 6 e 8</span>
+                        <span>Pontuação Baixa</span> <br><br>
+                        <span id="div_menorPontuacao"></span>
                     </div>
 
                     <div class="indicadores">
-                        <span>Pontuações Abaixo de 5</span>
+                        <span>Pontuação Média</span> <br><br>
+                        <span id="div_mediaPontuacao"></span>
                     </div>
                 </div>
 
 
                 <div class="container_rank">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="graficoDashboard"></canvas>
                 </div>
 
 
@@ -76,23 +85,141 @@
 </html>
 
 <script>
-    const ctx = document.getElementById('myChart');
+   let fkUsuario = sessionStorage.ID_USUARIO
+    console.log(fkUsuario)
+    function iniciarDash() {
+        // // obterKpiAcertos()
+        // obterMaiorPontuacao()
+        // obterqtdPessoasCadastradas()
+        obterGraficosPontuacaoUsuario()
+        // obterMediaAcertosGeral()
+    }
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Usuario 1', 'Usuario 2', 'Usuario 3', 'Usuario 4', 'Usuario 5'],
-            datasets: [{
-                label: 'Pontuação do Quiz',
-                data: [10, 8, 6, 4, 2],
-                borderWidth: 3,
-                borderColor: 'rgb(165, 42, 42)',
-                backgroundColor: 'rgb(165, 42, 42)'
-            }]
-        },
-        options: {
-            indexAxis: 'y',
+  function pegarDados(){
+
+    div_maiorPontuacao.innerHTML = sessionStorage.getItem("MAIOR_NOTA")
+    div_menorPontuacao.innerHTML = sessionStorage.getItem("MENOR_NOTA")
+    div_mediaPontuacao.innerHTML = sessionStorage.getItem("MEDIA_NOTA")
+    
+    const ctx = document.getElementById('graficoDashboard');
+  
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Maior Pontuação', 'Menor Pontuação', 'Pontuação Média'],
+      datasets: [{
+        label: 'Pontuação',
+        data: [sessionStorage.getItem("MAIOR_NOTA"), sessionStorage.getItem("MENOR_NOTA"), sessionStorage.getItem("MEDIA_NOTA")],
+        borderWidth: 1,
+        borderColor: 'black',
+        backgroundColor: 'darkred'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
-    });
+      }
+    }
+  });
+  }
+
+    function obterGraficosPontuacaoUsuario() {
+        fetch(`/medidas/obterMenorPontuacao/${fkUsuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        sessionStorage.MAIOR_NOTA = resposta[0].maiorPontuacao
+                        sessionStorage.MENOR_NOTA = resposta[0].menorPontuacao
+                        sessionStorage.MEDIA_NOTA = resposta[0].mediaPontuacao
+                        pegarDados();
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+
+    function mostrarGraficosPontuacaoUsuario(resposta) {
+        console.log('iniciando plotagem...');
+        let fkUsuario = sessionStorage.ID_USUARIO;
+
+        var dados = {
+            pontuacoes_usuario: []
+        }
+
+        for (var i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.pontuacoes_usuario.push(registro.pontuacoes_usuario)
+        }
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['1','2', '3', '4', '5'],
+                datasets: [{
+                    label: 'Pontuação',
+                    data: [sessionStorage.getItem("maiorPontuacao"), sessionStorage.getItem("menorPontuacao"), sessionStorage.getItem("mediaPontuacao")],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    }
+
+
+
+    // function mostrarGraficosMedias(resposta) {
+    //     console.log('iniciando plotagem...');
+
+    //     var dados = {
+    //         media_acertos_geral: [],
+    //         media_acertos_usuario: []
+    //     }
+
+    //     for (var i = 0; i < resposta.length; i++) {
+    //         var registro = resposta[i];
+    //         dados.media_acertos_geral.push(registro.media_acertos_geral)
+    //         dados.media_acertos_usuario.push(registro.media_acertos_usuario)
+    //     }
+
+    //     const ctx = document.getElementById('myChart');
+
+    //     new Chart(ctx, {
+    //         type: 'bar',
+    //         data: {
+    //             labels: ['Média Geral', 'Sua Média'],
+    //             datasets: [{
+    //                 label: 'Médias',
+    //                 data: [dados.media_acertos_geral, dados.media_acertos_usuario],
+    //                 borderWidth: 1
+    //             }]
+    //         },
+    //         options: {
+    //             scales: {
+    //                 y: {
+    //                     beginAtZero: true
+    //                 }
+    //             }
+    //         }
+    //     });
+
+    // }
 
 </script>
